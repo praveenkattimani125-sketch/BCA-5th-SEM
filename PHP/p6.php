@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<form method="POST">
+    Enter Date of Birth
+
+    <input type="date" name="dob" required>
+    <input type="submit" value="Calculate Age">
+</form>
+
+<?php
+if (isset($_POST['dob'])) {
+    $dob = new DateTime($_POST['dob']);
+    $today = new DateTime();
+
+    $age = $dob->diff($today);
+
+    echo "<h3>Your age is: "
+        . $age->y . " years and "
+        . $age->m . " months</h3>";
+}
+?>
+
+</body>
+</html>
